@@ -1,6 +1,6 @@
 # generator-webapp
 
-> [Yeoman](http://yeoman.io) generator
+> [Yeoman](http://yeoman.io) generator for webapps using Backbone, RequireJS, SASS, Coffeescript
 
 
 ## Getting Started
