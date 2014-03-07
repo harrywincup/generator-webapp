@@ -1,3 +1,8 @@
+# ==============================
+# Module: Application bootstrap
+# Project: <%= appName %>
+# ==============================
+
 require.config
 	paths:
 		jquery:             '../dependencies/jquery/dist/jquery.min'
