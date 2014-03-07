@@ -65,7 +65,8 @@ var WebappGenerator = yeoman.generators.Base.extend({
 
         this.template('index.html', 'app/dev/index.html');
         this.template('css/application.scss', 'app/dev/assets/css/application.scss');
-        this.template('code/app.coffee', 'app/dev/code/app.coffee');
+
+        this.copy('code/', 'app/dev/code');
 
         this.template('_config.json', 'config.json');
         this.template('_package.json', 'package.json');
