@@ -119,12 +119,12 @@ module.exports = function (grunt)
 
             // Remove all stylesheets except our final application CSS
             stylesheets: {
-                src: [ 'app/dist/assets/**/*.css', '!app/dist/application.css' ]
+                src: [ 'app/dist/assets/css']
             },
 
             // Remove all scripts except our final application JS
             scripts: {
-                src: [ 'app/dist/code/**/*.js', '!app/dist/application.js' ]
+                src: [ 'app/dist/code']
             },
         },
 
