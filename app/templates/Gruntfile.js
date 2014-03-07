@@ -73,7 +73,7 @@ module.exports = function (grunt)
                     expand: true,
                     cwd: 'app/dev/assets/css',
                     src: ['**/*.scss'],
-                    dest: 'app/dist',
+                    dest: 'app/dist/assets/css',
                     ext: '.css'
                 }]
             }
@@ -85,9 +85,9 @@ module.exports = function (grunt)
         autoprefixer: {
             build: {
                 expand: true,
-                cwd: 'app/dist',
+                cwd: 'app/dist/assets/css',
                 src: [ '**/*.css' ],
-                dest: 'app/dist'
+                dest: 'app/dist/assets/css'
             }
         },
 
@@ -95,7 +95,7 @@ module.exports = function (grunt)
         cssmin: {
             build: {
                 files: {
-                    'app/dist/application.css': [ 'app/dist/**/*.css' ]
+                    'app/dist/application.css': [ 'app/dist/assets/css/**/*.css' ]
                 }
             }
         },
@@ -119,12 +119,12 @@ module.exports = function (grunt)
 
             // Remove all stylesheets except our final application CSS
             stylesheets: {
-                src: [ 'app/dist/**/*.css', '!app/dist/application.css' ]
+                src: [ 'app/dist/assets/**/*.css', '!app/dist/application.css' ]
             },
 
             // Remove all scripts except our final application JS
             scripts: {
-                src: [ 'app/dist/**/*.js', '!app/dist/application.js' ]
+                src: [ 'app/dist/code/**/*.js', '!app/dist/application.js' ]
             },
         },
 
@@ -153,7 +153,7 @@ module.exports = function (grunt)
 
         open: {
             server: {
-                path: 'http://localhost:<%%= connect.options.port %>'
+                path: 'http://localhost:<%= connect.options.port %>'
             }
         }
     });
