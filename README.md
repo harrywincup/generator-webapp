@@ -1,6 +1,6 @@
-# generator-webapp [![Build Status](https://secure.travis-ci.org/harrywincup/generator-webapp.png?branch=master)](https://travis-ci.org/harrywincup/generator-webapp)
+# generator-webapp
 
-> [Yeoman](http://yeoman.io) generator
+> [Yeoman](http://yeoman.io) generator for webapps using Backbone, RequireJS, SASS, Coffeescript
 
 
 ## Getting Started
