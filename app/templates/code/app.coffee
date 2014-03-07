@@ -2,6 +2,6 @@
 
 define (require) ->
 	class App
-		constructor: =>
+		constructor: ->
 
 	return App
