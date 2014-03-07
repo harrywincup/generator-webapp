@@ -1,4 +1,4 @@
-# generator-webapp [![Build Status](https://secure.travis-ci.org/harrywincup/generator-webapp.png?branch=master)](https://travis-ci.org/harrywincup/generator-webapp)
+# generator-webapp
 
 > [Yeoman](http://yeoman.io) generator
 
