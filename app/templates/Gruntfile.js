@@ -99,7 +99,7 @@ module.exports = function (grunt)
         cssmin: {
             build: {
                 files: {
-                    'app/dist/application.css': [ 'app/dist/assets/css/**/*.css' ]
+                    'app/dist/assets/css/application.css': [ 'app/dist/assets/css/**/*.css' ]
                 }
             }
         },
@@ -123,7 +123,7 @@ module.exports = function (grunt)
 
             // Remove all stylesheets except our final application CSS
             stylesheets: {
-                src: [ 'app/dist/assets/css']
+                src: [ 'app/dist/assets/css/**/*.css', '!app/dist/assets/css/application.css']
             },
 
             // Remove all scripts except our final application JS
