@@ -1,1 +1,7 @@
-console.log 'Awesome much'
+
+
+define (require) ->
+	class App
+		constructor: =>
+
+	return App

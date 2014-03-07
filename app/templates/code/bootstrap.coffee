@@ -8,4 +8,4 @@ require.config
 		# Templating
 		templates:          '../templates'
 
-require ['app'], (App) -> App.initialize()
+require ['app'], (App) -> new App()
