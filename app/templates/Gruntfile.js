@@ -38,7 +38,7 @@ module.exports = function (grunt)
 
             // Watch for SASS changes and compile to CSS ... Doesn't livereload
             sass: {
-                files: 'app/dev/css/*.scss',
+                files: 'app/dev/assets/css/**/*.scss',
                 tasks: ['stylesheets']
             }
         },
@@ -61,12 +61,16 @@ module.exports = function (grunt)
                     mangle: false
                 },
 
-                files: {
-                    'app/dist/application.js': [ 'app/dist/code/**/*.js' ]
-                }
+                files: [{
+                    expand: true,
+                    cwd: 'app/dist/code',
+                    src: '**/*.js',
+                    dest: 'app/dist/code'
+                }]
             }
         },
 
+        // Compile SASS into CSS
         sass: {
             dist: {
                 files: [{
@@ -124,7 +128,7 @@ module.exports = function (grunt)
 
             // Remove all scripts except our final application JS
             scripts: {
-                src: [ 'app/dist/code']
+                src: []
             },
         },
 
