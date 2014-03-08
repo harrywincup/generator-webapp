@@ -1,4 +1,4 @@
-// Generated on 2014-03-07 using generator-webapp 0.0.0
+// Generated on <%= (new Date).toISOString().split('T')[0] %> using <%= pkg.name %> <%= pkg.version %>
 'use strict';
 
 var LIVERELOAD_PORT       = 35729;
@@ -25,21 +25,29 @@ module.exports = function (grunt)
             },
 
             // Watch only compiled source files before reloading the page
-            livereload: {
-                files: ['app/dist/**/*'],
-                options: { livereload: true }
-            },
+            // livereload: {
+            //     files: ['app/dist/**/*'],
+            //     options: { livereload: true }
+            // },
 
             // Watch for Coffeescript changes and compile to JS ... Doesn't livereload
             coffee: {
                 files: 'app/dev/code/**/*.coffee',
-                tasks: ['scripts']
+                tasks: ['scripts'],
+                options: { livereload: true }
             },
 
             // Watch for SASS changes and compile to CSS ... Doesn't livereload
             sass: {
                 files: 'app/dev/assets/css/**/*.scss',
-                tasks: ['stylesheets']
+                tasks: ['stylesheets'],
+                options: { livereload: true }
+            },
+
+            templates: {
+                files: 'app/dev/**/*.html',
+                tasks: ['templates'],
+                options: { livereload: true }
             }
         },
 
@@ -113,6 +121,13 @@ module.exports = function (grunt)
                 dest: 'app/dist',
                 expand: true
             },
+
+            templates: {
+                'cwd': 'app/dev',
+                src: ['**/*.html', '!dependencies/**/*.html'],
+                dest: 'app/dist',
+                expand: true,
+            }
         },
 
         // Clean out distribution dir before rebuilding
@@ -157,7 +172,7 @@ module.exports = function (grunt)
 
         open: {
             server: {
-                path: 'http://localhost:<%%= connect.options.port %>'
+                path: 'http://localhost:<%= connect.options.port %>'
             }
         }
     });
@@ -167,7 +182,7 @@ module.exports = function (grunt)
     grunt.registerTask(
         'stylesheets',
         'Compiles the stylesheets.',
-        [ 'sass', 'autoprefixer', 'cssmin', 'clean:stylesheets']
+        [ 'newer:sass', 'newer:autoprefixer', 'newer:cssmin', 'clean:stylesheets']
     );
 
     // Scripts
@@ -175,7 +190,13 @@ module.exports = function (grunt)
     grunt.registerTask(
         'scripts',
         'Compiles Coffeescript into Javascript',
-        ['coffee', 'uglify', 'clean:scripts']
+        ['newer:coffee', 'newer:uglify', 'clean:scripts']
+    );
+
+    grunt.registerTask(
+        'templates',
+        'Moves updated templates into distribution dir',
+        ['newer:copy:templates']
     );
 
     // Clean build destination
@@ -185,7 +206,7 @@ module.exports = function (grunt)
     grunt.registerTask(
         'build',
         'Compiles assets and copies the files to build directory',
-        ['clean:build', 'copy', 'stylesheets', 'scripts']
+        ['clean:build', 'newer:copy', 'stylesheets', 'scripts']
     );
 
     // Default task for when we run 'grunt'
@@ -194,4 +215,8 @@ module.exports = function (grunt)
         'Watches the project for changes, automatically builds them and runs a server.',
         ['build', 'connect:livereload', 'open', 'watch']
     );
+
+    grunt.event.on('watch', function(action, filepath) {
+        console.log('Watched ' + filepath);
+    });
 };
