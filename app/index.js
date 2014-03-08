@@ -54,7 +54,7 @@ var WebappGenerator = yeoman.generators.Base.extend({
         this.directory('code/', 'app/dev/code');
         this.mkdir('app/dev/code/models');
         this.mkdir('app/dev/code/views');
-        this.mkdir('app/dev/code/controllers');
+        this.mkdir('app/dev/code/collections');
         this.mkdir('app/dev/code/routers');
 
         this.mkdir('app/dev/assets');
