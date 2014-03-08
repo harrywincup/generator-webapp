@@ -6,6 +6,7 @@
       "foundation-grid":        "~5.2.0",
       "modernizr":              "~2.7.2",
       "requirejs":              "~2.1.11",
+      "requirejs-text":         "~2.0.10",
       "underscore-amd":         "~1.5.2",
       "backbone-amd":           "~1.1.0",
       "jquery":                 "~2.1.0",
