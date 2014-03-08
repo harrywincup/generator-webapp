@@ -5,6 +5,6 @@
 
 define (require) ->
 	class App
-		constructor: ->
+		constructor: -> console.log 'App::constructor()'
 
 	return App
