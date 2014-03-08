@@ -13,7 +13,7 @@ var ModelGenerator = yeoman.generators.NamedBase.extend({
 
     files: function ()
     {
-        this.template('model.coffee', 'app/dev/code/models/' + this.name + '.coffee');
+        this.template('collection.coffee', 'app/dev/code/collections/' + this.name + '.coffee');
     }
 });
 
