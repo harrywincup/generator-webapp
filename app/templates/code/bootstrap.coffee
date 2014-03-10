@@ -14,6 +14,7 @@ require.config
 		# App framework
 
 		# Templating
+		rivets: 			'/dependencies/rivets/dist/rivets.min'
 		templates:          '/templates'
 
 require ['app'], (App) -> new App()
