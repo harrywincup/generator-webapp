@@ -24,20 +24,14 @@ module.exports = function (grunt)
                 livereload: LIVERELOAD_PORT
             },
 
-            // Watch only compiled source files before reloading the page
-            // livereload: {
-            //     files: ['app/dist/**/*'],
-            //     options: { livereload: true }
-            // },
-
-            // Watch for Coffeescript changes and compile to JS ... Doesn't livereload
+            // Watch for Coffeescript changes and compile to JS
             coffee: {
                 files: 'app/dev/code/**/*.coffee',
                 tasks: ['scripts'],
                 options: { livereload: true }
             },
 
-            // Watch for SASS changes and compile to CSS ... Doesn't livereload
+            // Watch for SASS changes and compile to CSS
             sass: {
                 files: 'app/dev/assets/css/**/*.scss',
                 tasks: ['stylesheets'],
@@ -215,8 +209,4 @@ module.exports = function (grunt)
         'Watches the project for changes, automatically builds them and runs a server.',
         ['build', 'connect:livereload', 'open', 'watch']
     );
-
-    grunt.event.on('watch', function(action, filepath) {
-        console.log('Watched ' + filepath);
-    });
 };
