@@ -14,7 +14,11 @@ var ViewGenerator = yeoman.generators.NamedBase.extend({
 
     files: function ()
     {
+        // Set up view file
         this.template('view.coffee', 'app/dev/code/views/' + this.name + '.coffee');
+
+        // Set up corresponding template file
+        this.template('view.html', 'app/dev/code/templates/' + this.name + '.html')
     }
 });
 
