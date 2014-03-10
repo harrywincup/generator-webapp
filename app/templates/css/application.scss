@@ -3,8 +3,8 @@
 * Project: <%= appName %>
 *******************************/
 
-@import url(/dependencies/normalize-css/normalize.css);
-@import url(/dependencies/foundation-grid/css/foundation.min.css);
+@import '../../dependencies/normalize-css/normalize.css';
+@import '../../dependencies/foundation-grid/css/foundation.min.css';
 
 $body-background: #339966;
 
