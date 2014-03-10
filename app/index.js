@@ -44,6 +44,7 @@ var WebappGenerator = yeoman.generators.Base.extend({
 
     app: function ()
     {
+        // Create our dir structure
         this.mkdir('app');
 
         this.mkdir('app/dist');
@@ -62,11 +63,15 @@ var WebappGenerator = yeoman.generators.Base.extend({
         this.mkdir('app/dev/assets/css');
         this.mkdir('app/dev/assets/fonts');
 
+        // Template important files for getting the app running
         this.template('Gruntfile.js', 'Gruntfile.js');
 
         this.template('index.html', 'app/dev/index.html');
         this.template('css/application.scss', 'app/dev/assets/css/application.scss');
 
+        this.template('code/main-view.coffee', 'app/dev/code/views/app.coffee');
+
+        // Configurations
         this.template('_config.json', 'config.json');
         this.template('_package.json', 'package.json');
         this.template('_bower.json', 'bower.json');
